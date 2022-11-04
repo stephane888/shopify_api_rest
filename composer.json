@@ -10,5 +10,7 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "stephane888/wbu-shopify": "dev-2x"
+    }
 }
