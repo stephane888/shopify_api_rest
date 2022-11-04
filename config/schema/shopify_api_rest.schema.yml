@@ -1,0 +1,8 @@
+# Schema for the configuration files of the shopify_api_rest module.
+shopify_api_rest.settings:
+  type: config_object
+  label: 'shopify_api_rest settings'
+  mapping:
+    example:
+      type: string
+      label: 'Example'

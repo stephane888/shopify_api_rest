@@ -1,0 +1,14 @@
+{
+    "name": "stephane888/shopify_api_rest",
+    "description": "Permet de faire le pont entre drupal 9 et shopify",
+    "type": "drupal-module-custom",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "kouwa stephane",
+            "email": "kksasteph888@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

@@ -1,0 +1,6 @@
+shopify_api_rest.settings_form:
+  title: 'shopify_api_rest'
+  description: 'Configure shopify_api_rest.'
+  parent: system.admin_config_system
+  route_name: shopify_api_rest.settings_form
+  weight: 10

@@ -1,0 +1,15 @@
+shopify_api_rest.example:
+  path: '/shopify-api-rest/example'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\shopify_api_rest\Controller\ShopifyApiRestController::build'
+  requirements:
+    _permission: 'access content'
+
+shopify_api_rest.settings_form:
+  path: '/admin/config/system/shopify-api-rest'
+  defaults:
+    _title: 'shopify_api_rest settings'
+    _form: 'Drupal\shopify_api_rest\Form\SettingsForm'
+  requirements:
+    _permission: 'administer shopify_api_rest configuration'
