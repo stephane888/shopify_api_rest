@@ -40,8 +40,8 @@ class ManageAccessToken extends ControllerBase {
   /**
    * --
    */
-  public function retriveAutorisationToken() {
-    //
+  public function setAppConfig($configs) {
+    $this->IntegrationToken->setConfigs($configs);
   }
   
   /**
