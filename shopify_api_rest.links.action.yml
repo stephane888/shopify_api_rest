@@ -3,3 +3,8 @@ entity.creneau_cnf.add_form:
   title: 'Add Creneau cnf'
   appears_on:
     - entity.creneau_cnf.collection
+entity.access_token.add_form:
+  route_name: entity.access_token.add_form
+  title: 'Add Access token'
+  appears_on:
+    - entity.access_token.collection

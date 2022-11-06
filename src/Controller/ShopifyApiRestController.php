@@ -35,9 +35,29 @@ class ShopifyApiRestController extends ControllerBase {
   /**
    * Builds the response.
    */
-  public function LoadConfig() {
-    $build = [];
-    return $this->reponse($build);
+  public function LoadConfig(Request $Request) {
+    try {
+      $params = $Request->query->all();
+      if (!empty($params['key']) && !empty($params['shop_domain'])) {
+        /**
+         *
+         * @var CreneauCnf
+         */
+        $creneau_cnf = $this->ManageConfig->loadEntityConfig($params);
+        if ($creneau_cnf) {
+          return HttpResponse::response($creneau_cnf->get('datas')->value);
+        }
+        return HttpResponse::response([]);
+      }
+      else
+        throw new \Exception(" Parametre manquant. ");
+    }
+    catch (\Exception $e) {
+      return HttpResponse::response(ExceptionExtractMessage::errorAll($e), 400, $e->getMessage());
+    }
+    catch (\Error $e) {
+      return HttpResponse::response(ExceptionExtractMessage::errorAll($e), 400, $e->getMessage());
+    }
   }
   
   /**
@@ -47,7 +67,7 @@ class ShopifyApiRestController extends ControllerBase {
    */
   public function InitConfig() {
     $build = [];
-    return $this->reponse($build);
+    return HttpResponse::response($build);
   }
   
   /**
@@ -57,7 +77,7 @@ class ShopifyApiRestController extends ControllerBase {
    */
   public function LoadBusyCreneaux() {
     $build = [];
-    return $this->reponse($build);
+    return HttpResponse::response($build);
   }
   
   /**
@@ -69,21 +89,21 @@ class ShopifyApiRestController extends ControllerBase {
   public function SaveCreneaux(Request $Request) {
     try {
       $params = $Request->query->all();
-      if (!empty($params['key']) && !empty($params['shop'])) {
-        return HttpResponse::response($this->ManageConfig->delete(1));
+      if (!empty($params['key']) && !empty($params['shop_domain'])) {
+        // return HttpResponse::response($this->ManageConfig->delete(1));
         //
         $values = [
           'key' => $params['key'],
-          'shop_domain' => $params['shop'],
+          'shop_domain' => $params['shop_domain'],
           'name' => $params['shop'],
           'datas' => $Request->getContent()
         ];
-      /**
-       *
-       * @var CreneauCnf
-       */
-        // $creneau_cnf = $this->ManageConfig->save($values);
-        // return $this->reponse($creneau_cnf->toArray());
+        /**
+         *
+         * @var CreneauCnf
+         */
+        $creneau_cnf = $this->ManageConfig->save($values);
+        return HttpResponse::response($creneau_cnf->toArray());
       }
       else
         throw new \Exception(" Parametre manquant. ");

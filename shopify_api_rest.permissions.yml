@@ -29,3 +29,23 @@ delete all creneau cnf revisions:
   title: 'Delete all revisions'
   description: 'Role requires permission to <em>view Creneau cnf revisions</em> and <em>delete rights</em> for creneau cnf entities in question or <em>administer creneau cnf entities</em>.'
 
+add access token entities:
+  title: 'Create new Access token entities'
+
+administer access token entities:
+  title: 'Administer Access token entities'
+  description: 'Allow to access the administration form to configure Access token entities.'
+  restrict access: true
+
+delete access token entities:
+  title: 'Delete Access token entities'
+
+edit access token entities:
+  title: 'Edit Access token entities'
+
+view published access token entities:
+  title: 'View published Access token entities'
+
+view unpublished access token entities:
+  title: 'View unpublished Access token entities'
+

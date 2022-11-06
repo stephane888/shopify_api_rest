@@ -31,6 +31,14 @@ shopify_api_rest.save_creneaux:
   requirements:
     _permission: 'access content'
     
+shopify_api_rest.save_metafields:
+  path: '/shopify-api-rest/request/save-metafields'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\shopify_api_rest\Controller\RequestShopifyController::SaveCreneauxMetafields'
+  requirements:
+    _permission: 'access content'
+    
 shopify_api_rest.settings_form:
   path: '/admin/config/system/shopify-api-rest'
   defaults:

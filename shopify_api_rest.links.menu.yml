@@ -18,3 +18,17 @@ creneau_cnf.admin.structure.settings:
   description: 'Configure Creneau cnf entities'
   route_name: creneau_cnf.settings
   parent: system.admin_structure
+
+# Access token menu items definition
+entity.access_token.collection:
+  title: 'Access token list'
+  route_name: entity.access_token.collection
+  description: 'List Access token entities'
+  parent: system.admin_structure
+  weight: 100
+
+access_token.admin.structure.settings:
+  title: 'Access token settings'
+  description: 'Configure Access token entities'
+  route_name: access_token.settings
+  parent: system.admin_structure

@@ -232,7 +232,7 @@ class CreneauCnf extends EditorialContentEntityBase implements CreneauCnfInterfa
     ])->setDisplayOptions('form', [
       'type' => 'string_textfield',
       'weight' => 2
-    ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setRequired(TRUE)->setTranslatable(true)->setRevisionable(false);
+    ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setRequired(TRUE)->setTranslatable(true)->setRevisionable(true);
     
     $fields['key'] = BaseFieldDefinition::create('string')->setLabel(t(' Clée '))->setDescription(t(" Permettant d'identifier la donnée enregistrée. "))->setSettings([
       'max_length' => 50,
@@ -244,7 +244,7 @@ class CreneauCnf extends EditorialContentEntityBase implements CreneauCnfInterfa
     ])->setDisplayOptions('form', [
       'type' => 'string_textfield',
       'weight' => 2
-    ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setRequired(TRUE)->setTranslatable(true)->setRevisionable(false);
+    ])->setDisplayConfigurable('form', TRUE)->setDisplayConfigurable('view', TRUE)->setRequired(TRUE)->setTranslatable(true)->setRevisionable(true);
     
     $fields['datas'] = BaseFieldDefinition::create('string_long')->setLabel(" Données ")->setDisplayOptions('form', [
       'type' => 'string_textarea',
@@ -252,7 +252,7 @@ class CreneauCnf extends EditorialContentEntityBase implements CreneauCnfInterfa
       'settings' => [
         'rows' => 4
       ]
-    ])->setDisplayConfigurable('view', TRUE)->setDisplayConfigurable('form', true)->setRevisionable(false);
+    ])->setDisplayConfigurable('view', TRUE)->setDisplayConfigurable('form', true)->setRevisionable(true);
     
     $fields['status']->setDescription(t('A boolean indicating whether the Creneau cnf is published.'))->setDisplayOptions('form', [
       'type' => 'boolean_checkbox',
