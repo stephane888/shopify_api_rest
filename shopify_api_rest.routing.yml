@@ -1,11 +1,36 @@
-shopify_api_rest.example:
-  path: '/shopify-api-rest/example'
+shopify_api_rest.load_configs:
+  path: '/shopify-api-rest/load-configs'
   defaults:
     _title: 'Example'
-    _controller: '\Drupal\shopify_api_rest\Controller\ShopifyApiRestController::build'
+    _controller: '\Drupal\shopify_api_rest\Controller\ShopifyApiRestController::LoadConfig'
   requirements:
     _permission: 'access content'
-
+    
+shopify_api_rest.init_local_configs:
+  path: '/shopify-api-rest/init-local'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\shopify_api_rest\Controller\ShopifyApiRestController::InitConfig'
+  requirements:
+    _permission: 'access content'
+    
+# Permet de charger les creneaux deja utilisés.    
+shopify_api_rest.load_old_creneaux:
+  path: '/shopify-api-rest/load-creneau-reserve'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\shopify_api_rest\Controller\ShopifyApiRestController::LoadBusyCreneaux'
+  requirements:
+    _permission: 'access content'
+    
+shopify_api_rest.save_creneaux:
+  path: '/shopify-api-rest/save-configs'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\shopify_api_rest\Controller\ShopifyApiRestController::SaveCreneaux'
+  requirements:
+    _permission: 'access content'
+    
 shopify_api_rest.settings_form:
   path: '/admin/config/system/shopify-api-rest'
   defaults:
@@ -13,3 +38,5 @@ shopify_api_rest.settings_form:
     _form: 'Drupal\shopify_api_rest\Form\SettingsForm'
   requirements:
     _permission: 'administer shopify_api_rest configuration'
+
+    

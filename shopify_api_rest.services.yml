@@ -1,0 +1,4 @@
+services:
+  shopify_api_rest.manage_config:
+    class: Drupal\shopify_api_rest\Services\ManageConfig
+    arguments: []

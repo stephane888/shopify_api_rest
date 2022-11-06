@@ -1,0 +1,31 @@
+add creneau cnf entities:
+  title: 'Create new Creneau cnf entities'
+
+administer creneau cnf entities:
+  title: 'Administer Creneau cnf entities'
+  description: 'Allow to access the administration form to configure Creneau cnf entities.'
+  restrict access: true
+
+delete creneau cnf entities:
+  title: 'Delete Creneau cnf entities'
+
+edit creneau cnf entities:
+  title: 'Edit Creneau cnf entities'
+
+view published creneau cnf entities:
+  title: 'View published Creneau cnf entities'
+
+view unpublished creneau cnf entities:
+  title: 'View unpublished Creneau cnf entities'
+
+view all creneau cnf revisions:
+  title: 'View all Creneau cnf revisions'
+
+revert all creneau cnf revisions:
+  title: 'Revert all Creneau cnf revisions'
+  description: 'Role requires permission <em>view Creneau cnf revisions</em> and <em>edit rights</em> for creneau cnf entities in question or <em>administer creneau cnf entities</em>.'
+
+delete all creneau cnf revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Creneau cnf revisions</em> and <em>delete rights</em> for creneau cnf entities in question or <em>administer creneau cnf entities</em>.'
+

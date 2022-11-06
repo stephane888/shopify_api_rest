@@ -1,0 +1,5 @@
+entity.creneau_cnf.add_form:
+  route_name: entity.creneau_cnf.add_form
+  title: 'Add Creneau cnf'
+  appears_on:
+    - entity.creneau_cnf.collection

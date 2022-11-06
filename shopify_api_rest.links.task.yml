@@ -1,0 +1,26 @@
+# Creneau cnf routing definition
+creneau_cnf.settings_tab:
+  route_name: creneau_cnf.settings
+  title: 'Settings'
+  base_route: creneau_cnf.settings
+
+entity.creneau_cnf.canonical:
+  route_name: entity.creneau_cnf.canonical
+  base_route: entity.creneau_cnf.canonical
+  title: 'View'
+
+entity.creneau_cnf.edit_form:
+  route_name: entity.creneau_cnf.edit_form
+  base_route: entity.creneau_cnf.canonical
+  title: 'Edit'
+
+entity.creneau_cnf.version_history:
+  route_name: entity.creneau_cnf.version_history
+  base_route: entity.creneau_cnf.canonical
+  title: 'Revisions'
+
+entity.creneau_cnf.delete_form:
+  route_name:  entity.creneau_cnf.delete_form
+  base_route:  entity.creneau_cnf.canonical
+  title: Delete
+  weight: 10

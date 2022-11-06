@@ -4,3 +4,17 @@ shopify_api_rest.settings_form:
   parent: system.admin_config_system
   route_name: shopify_api_rest.settings_form
   weight: 10
+
+# Creneau cnf menu items definition
+entity.creneau_cnf.collection:
+  title: 'Creneau cnf list'
+  route_name: entity.creneau_cnf.collection
+  description: 'List Creneau cnf entities'
+  parent: system.admin_structure
+  weight: 100
+
+creneau_cnf.admin.structure.settings:
+  title: 'Creneau cnf settings'
+  description: 'Configure Creneau cnf entities'
+  route_name: creneau_cnf.settings
+  parent: system.admin_structure
