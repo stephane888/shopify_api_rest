@@ -85,7 +85,7 @@ class ManageAccessToken extends ControllerBase {
    *
    * @param Request $Request
    */
-  public function SaveAuthorization(Request $Request, array $grantOptions, $with_token = true, array $confs = []) {
+  public function SaveAuthorization(Request $Request, array $grantOptions, $with_token = true) {
     $params = $Request->query->all();
     $this->IntegrationToken->ValidationRequest($Request);
     //
@@ -94,8 +94,8 @@ class ManageAccessToken extends ControllerBase {
         'shop_domain' => $params['shop'],
         'authorization_code' => $params['code']
       ];
-      if ($with_token && !empty($confs)) {
-        $values['access_token'] = $this->IntegrationToken->GetTokenAccess($Request, $confs);
+      if ($with_token) {
+        $values['access_token'] = $this->IntegrationToken->GetTokenAccess($Request);
       }
       $entity = $this->getEntityByShopDomain($params['shop']);
       if ($entity) {
