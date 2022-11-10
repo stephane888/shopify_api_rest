@@ -95,7 +95,7 @@ class ShopifyApiRestController extends ControllerBase {
         $values = [
           'key' => $params['key'],
           'shop_domain' => $params['shop_domain'],
-          'name' => $params['shop'],
+          'name' => $params['shop_domain'],
           'datas' => $Request->getContent()
         ];
         /**
