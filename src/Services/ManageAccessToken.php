@@ -21,6 +21,11 @@ class ManageAccessToken extends ControllerBase {
   protected $access_token;
   protected $MetafieldsToken;
   
+  /**
+   *
+   * @param IntegrationToken $IntegrationToken
+   * @param MetafieldsToken $MetafieldsToken
+   */
   public function __construct(IntegrationToken $IntegrationToken, MetafieldsToken $MetafieldsToken) {
     $this->IntegrationToken = $IntegrationToken;
     $this->MetafieldsToken = $MetafieldsToken;
@@ -67,6 +72,11 @@ class ManageAccessToken extends ControllerBase {
     }
   }
   
+  /**
+   *
+   * @param Request $Request
+   * @return mixed
+   */
   public function getToken(Request $Request) {
     $params = $Request->query->all();
     if (!$this->access_token) {
@@ -93,6 +103,7 @@ class ManageAccessToken extends ControllerBase {
   public function saveMetafields(string $endPoint, array $metafields, array $configs) {
     $this->MetafieldsToken->setConfigs($configs);
     $this->MetafieldsToken->requestEndPoint = $endPoint;
+    $this->MetafieldsToken->authentificationXShopify();
     return $this->MetafieldsToken->save($metafields);
   }
   
