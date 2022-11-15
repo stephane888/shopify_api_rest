@@ -7,6 +7,7 @@ use Drupal\shopify_api_rest\Entity\AccessToken;
 use Symfony\Component\HttpFoundation\Request;
 use Stephane888\WbuShopify\ApiRest\Authentification\IntegrationToken;
 use Stephane888\WbuShopify\Exception\WbuShopifyException;
+use Drupal\Component\Serialization\Json;
 
 /**
  *
@@ -72,7 +73,12 @@ class ManageAccessToken extends ControllerBase {
        */
       $entityToken = $this->getEntityByShopDomain($params['shop']);
       if ($entityToken) {
-        $this->access_token = $entityToken->get('access_token')->value;
+        $data = $entityToken->get('access_token')->value;
+        if (!empty($data)) {
+          $data = Json::decode($data);
+          if (!empty($data['access_token']))
+            $this->access_token = $data['access_token'];
+        }
       }
     }
     return $this->access_token;
