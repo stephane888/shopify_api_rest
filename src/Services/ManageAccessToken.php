@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Stephane888\WbuShopify\ApiRest\Authentification\IntegrationToken;
 use Stephane888\WbuShopify\Exception\WbuShopifyException;
 use Drupal\Component\Serialization\Json;
+use Stephane888\WbuShopify\ApiRest\Metafields\MetafieldsToken;
 
 /**
  *
@@ -18,9 +19,11 @@ class ManageAccessToken extends ControllerBase {
   protected $entity_type_id = 'access_token';
   protected $IntegrationToken;
   protected $access_token;
+  protected $MetafieldsToken;
   
-  public function __construct(IntegrationToken $IntegrationToken) {
+  public function __construct(IntegrationToken $IntegrationToken, MetafieldsToken $MetafieldsToken) {
     $this->IntegrationToken = $IntegrationToken;
+    $this->MetafieldsToken = $MetafieldsToken;
   }
   
   /**
@@ -82,6 +85,15 @@ class ManageAccessToken extends ControllerBase {
       }
     }
     return $this->access_token;
+  }
+  
+  /**
+   * Permet d'enregistrer les metafields.
+   */
+  public function saveMetafields(string $endPoint, array $metafields, array $configs) {
+    $this->MetafieldsToken->setConfigs($configs);
+    $this->MetafieldsToken->requestEndPoint = $endPoint;
+    return $this->MetafieldsToken->save($metafields);
   }
   
   /**

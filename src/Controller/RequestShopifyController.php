@@ -22,7 +22,7 @@ class RequestShopifyController extends ControllerBase {
   public function SaveCreneauxMetafields(Request $Request) {
     try {
       $params = $Request->query->all();
-      if (!empty($params['key']) && !empty($params['shop_domain'])) {
+      if (!empty($params['shop'])) {
         $IntegrationToken = new IntegrationToken();
         /**
          *
