@@ -5,8 +5,12 @@ services:
     
   shopify_api_rest.manage_access_token:
     class: Drupal\shopify_api_rest\Services\ManageAccessToken
-    arguments: ['@shopify_api_rest.wbu_shopify']
+    arguments: ['@shopify_api_rest.wbu_shopify','@shopify_api_rest.wbu_shopify.metafields']
   
   shopify_api_rest.wbu_shopify:
     class: Stephane888\WbuShopify\ApiRest\Authentification\IntegrationToken
+    arguments: []
+    
+  shopify_api_rest.wbu_shopify.metafields:
+    class: Stephane888\WbuShopify\ApiRest\Metafields\MetafieldsToken
     arguments: []
