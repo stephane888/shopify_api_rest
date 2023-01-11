@@ -114,7 +114,7 @@ class ManageAccessToken extends ControllerBase {
     $this->MetafieldsToken->setConfigs($configs);
     $this->MetafieldsToken->requestEndPoint = $endPoint;
     $this->MetafieldsToken->authentificationXShopify();
-    return $this->MetafieldsToken->get();
+    return $this->MetafieldsToken->LoadMetafiels();
   }
   
   /**
