@@ -108,6 +108,16 @@ class ManageAccessToken extends ControllerBase {
   }
   
   /**
+   * Permet de charger les metafields.
+   */
+  public function loadMetafields(string $endPoint, array $metafields, array $configs) {
+    $this->MetafieldsToken->setConfigs($configs);
+    $this->MetafieldsToken->requestEndPoint = $endPoint;
+    $this->MetafieldsToken->authentificationXShopify();
+    return $this->MetafieldsToken->get();
+  }
+  
+  /**
    * Permet d'enregistrer le "authorization_code";
    * On doit egalement verifier que tous les droits nous sont accordées et les
    * enregistrées.

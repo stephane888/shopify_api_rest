@@ -33,19 +33,28 @@ class ShopifyApiRestController extends ControllerBase {
   }
   
   /**
-   * Builds the response.
+   * Charge la configuration,
+   * Il permet de soit charger la configuration en local soit de charger celle
+   * en prod.
+   *
+   * @deprecated
    */
   public function LoadConfig(Request $Request) {
     try {
       $params = $Request->query->all();
       if (!empty($params['key']) && !empty($params['shop_domain'])) {
-        /**
-         *
-         * @var CreneauCnf
-         */
-        $creneau_cnf = $this->ManageConfig->loadEntityConfig($params);
-        if ($creneau_cnf) {
-          return HttpResponse::response($creneau_cnf->get('datas')->value);
+        if (isset($params['load_from_prod']) && $params['load_from_prod'] == 1) {
+          //
+        }
+        else {
+          /**
+           *
+           * @var CreneauCnf
+           */
+          $creneau_cnf = $this->ManageConfig->loadEntityConfig($params);
+          if ($creneau_cnf) {
+            return HttpResponse::response($creneau_cnf->get('datas')->value);
+          }
         }
         return HttpResponse::response([]);
       }
